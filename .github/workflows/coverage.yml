@@ -1,12 +1,9 @@
 name: Running Code Coverage
-
 on: [push, pull_request]
 
 jobs:
-  build:
-
+  run:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
@@ -28,6 +25,6 @@ jobs:
     - name: Run the tests
       run: npm test
     - name: Upload coverage to Codecov
-    uses: codecov/codecov-action@v2
-    with:
+      uses: codecov/codecov-action@v2
+      with:
         token: ${{ secrets.CODECOV_TOKEN }}
