@@ -28,3 +28,12 @@ jobs:
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+    - name: generate coverage report for PR
+      uses: ArtiomTr/jest-coverage-report-action@v2
+      id: coverage
+      with:
+        output: report-markdown
+    - name: write coverage report as a comment for PR
+      uses: marocchino/sticky-pull-request-comment@v2
+      with:
+        message: ${{ steps.coverage.outputs.report }}
