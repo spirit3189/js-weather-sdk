@@ -16,7 +16,7 @@ export default class WeatherSDK {
       const weather = await response.json();
       return weather;
     } catch (error) {
-      console.error(error);
+      console.log(error);
       return null;
     }
   }

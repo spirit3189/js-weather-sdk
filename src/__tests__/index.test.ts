@@ -47,7 +47,7 @@ describe('WeatherSDK', () => {
 
   it('should handle errors in the getWeather method', async () => {
     const mockError = new Error('API Error');
-    const error = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const error = jest.spyOn(console, 'log').mockImplementation(() => undefined);
     global.fetch = jest.fn().mockRejectedValueOnce(mockError);
     const weatherData = await instance.getWeather(mockLocation);
     expect(error).toHaveBeenCalledWith(mockError);
