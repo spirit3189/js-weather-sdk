@@ -53,11 +53,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "git diff HEAD --quiet && npm run test"
+      "pre-push": "npm run tested"
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
+    "**/*.{js,jsx,ts,tsx,json}": [
       "npm run format",
       "npm run lint",
       "git add"
