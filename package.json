@@ -9,7 +9,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest --config jestconfig.json --coverage --no-cache",
     "build": "tsc",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "format": "prettier --write \"src/**/*.ts\"",
