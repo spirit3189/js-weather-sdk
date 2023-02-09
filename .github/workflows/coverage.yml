@@ -1,5 +1,5 @@
 name: Running Code Coverage
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   run:
@@ -28,3 +28,8 @@ jobs:
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Run tests
+      run: npx jest --coverage --coverageReporters json-summary
+
+    - name: Jest Coverage Comment
+      uses: MishaKav/jest-coverage-comment@main
